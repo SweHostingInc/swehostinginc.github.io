@@ -1,5 +1,217 @@
-<!-- index.html -->
-<html>
-  <head><title>Hello World</title></head>
-  <body><h1>Welcome to my site!</h1></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SweHosting - Reliable Server Hosting</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0078d7;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffbb33;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0078d7;
+    }
+
+    main p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .plan {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      flex: 1 1 250px;
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .plan h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #0078d7;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    .plan ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .plan .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffbb33;
+      margin-bottom: 1.5rem;
+    }
+
+    .plan button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .plan button:hover {
+      background: #005fa3;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SweHosting</h1>
+    <nav>
+      <a href="#plans">Plans</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>Reliable Server Hosting for Everyone</h2>
+      <p>
+        At SweHosting, we provide fast, secure, and affordable server hosting solutions tailored to your needs. Whether you’re running a small website or a large application, our infrastructure is built to scale with you.
+      </p>
+    </section>
+
+    <section id="plans">
+      <h2>Our Plans</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Basic</h3>
+          <div class="price">$5/month</div>
+          <ul>
+            <li>1 CPU Core</li>
+            <li>1 GB RAM</li>
+            <li>50 GB SSD Storage</li>
+            <li>1 TB Bandwidth</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+
+        <div class="plan">
+          <h3>Standard</h3>
+          <div class="price">$15/month</div>
+          <ul>
+            <li>2 CPU Cores</li>
+            <li>4 GB RAM</li>
+            <li>150 GB SSD Storage</li>
+            <li>5 TB Bandwidth</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+
+        <div class="plan">
+          <h3>Pro</h3>
+          <div class="price">$30/month</div>
+          <ul>
+            <li>4 CPU Cores</li>
+            <li>8 GB RAM</li>
+            <li>500 GB SSD Storage</li>
+            <li>Unlimited Bandwidth</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top: 3rem;">
+      <h2>Contact Us</h2>
+      <p>Email us at <a href="mailto:support@swehosting.com">support@swehosting.com</a> or call <strong>+46 70 123 4567</strong></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 SweHosting. All rights reserved.
+  </footer>
+</body>
 </html>
