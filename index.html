@@ -17,6 +17,7 @@
       background: #f7f9fc;
       color: #333;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     header {
@@ -25,6 +26,9 @@
       padding: 1.5rem 2rem;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header h1 {
@@ -56,16 +60,30 @@
       text-align: center;
     }
 
-    main h2 {
+    h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       color: #0078d7;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
     }
 
-    main p {
+    section p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
       color: #555;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .plans {
@@ -73,6 +91,10 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.4s;
     }
 
     .plan {
@@ -83,6 +105,7 @@
       flex: 1 1 250px;
       max-width: 300px;
       transition: transform 0.3s ease;
+      cursor: default;
     }
 
     .plan:hover {
@@ -100,6 +123,8 @@
       list-style: none;
       margin-bottom: 1.5rem;
       color: #444;
+      text-align: left;
+      padding-left: 1rem;
     }
 
     .plan ul li {
@@ -128,6 +153,104 @@
       background: #005fa3;
     }
 
+    /* Pricing Calculator */
+    #calculator {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 3rem auto 4rem auto;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.6s;
+    }
+
+    #calculator h3 {
+      margin-bottom: 1rem;
+      color: #0078d7;
+    }
+
+    #calculator label {
+      display: block;
+      margin: 1rem 0 0.4rem 0;
+      font-weight: 600;
+      color: #333;
+    }
+
+    #calculator select,
+    #calculator input[type="range"] {
+      width: 100%;
+      padding: 0.4rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #calculator output {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffbb33;
+      text-align: center;
+    }
+
+    /* Contact Form */
+    #contact form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.8s;
+    }
+
+    #contact form label {
+      display: block;
+      margin: 1rem 0 0.5rem 0;
+      font-weight: 600;
+      color: #333;
+    }
+
+    #contact form input,
+    #contact form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    #contact form textarea {
+      min-height: 120px;
+    }
+
+    #contact form button {
+      margin-top: 1.2rem;
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #contact form button:hover {
+      background: #005fa3;
+    }
+
     footer {
       background: #222;
       color: #ccc;
@@ -135,6 +258,14 @@
       text-align: center;
       margin-top: 3rem;
       font-size: 0.9rem;
+    }
+
+    a {
+      color: #0078d7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
@@ -150,6 +281,7 @@
     <h1>SweHosting</h1>
     <nav>
       <a href="#plans">Plans</a>
+      <a href="#calculator">Pricing Calculator</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -175,7 +307,7 @@
             <li>50 GB SSD Storage</li>
             <li>1 TB Bandwidth</li>
           </ul>
-          <button>Get Started</button>
+          <button onclick="alert('Thanks for choosing Basic! Contact sales for next steps.')">Get Started</button>
         </div>
 
         <div class="plan">
@@ -184,34 +316,127 @@
           <ul>
             <li>2 CPU Cores</li>
             <li>4 GB RAM</li>
-            <li>150 GB SSD Storage</li>
-            <li>5 TB Bandwidth</li>
+            <li>200 GB SSD Storage</li>
+            <li>4 TB Bandwidth</li>
           </ul>
-          <button>Get Started</button>
+          <button onclick="alert('Thanks for choosing Standard! Contact sales for next steps.')">Get Started</button>
         </div>
 
         <div class="plan">
-          <h3>Pro</h3>
+          <h3>Premium</h3>
           <div class="price">$30/month</div>
           <ul>
             <li>4 CPU Cores</li>
             <li>8 GB RAM</li>
             <li>500 GB SSD Storage</li>
-            <li>Unlimited Bandwidth</li>
+            <li>10 TB Bandwidth</li>
           </ul>
-          <button>Get Started</button>
+          <button onclick="alert('Thanks for choosing Premium! Contact sales for next steps.')">Get Started</button>
         </div>
       </div>
     </section>
 
-    <section id="contact" style="margin-top: 3rem;">
+    <section id="calculator">
+      <h3>Custom Pricing Calculator</h3>
+      <form onsubmit="return false;">
+        <label for="cpu">CPU Cores:</label>
+        <select id="cpu" name="cpu" aria-label="Select number of CPU cores">
+          <option value="1">1 Core</option>
+          <option value="2" selected>2 Cores</option>
+          <option value="4">4 Cores</option>
+          <option value="8">8 Cores</option>
+        </select>
+
+        <label for="ram">RAM (GB): <output id="ram-output">4</output></label>
+        <input type="range" id="ram" name="ram" min="1" max="32" value="4" step="1" oninput="updatePrice()" />
+
+        <label for="storage">Storage Type:</label>
+        <select id="storage" name="storage" aria-label="Select storage type" onchange="updatePrice()">
+          <option value="ssd" selected>SSD</option>
+          <option value="hdd">HDD</option>
+        </select>
+
+        <label for="bandwidth">Bandwidth (TB): <output id="bandwidth-output">1</output></label>
+        <input type="range" id="bandwidth" name="bandwidth" min="1" max="10" value="1" step="1" oninput="updatePrice()" />
+
+        <p style="margin-top:1.5rem; font-size:1.3rem; font-weight:700;">
+          Estimated Monthly Price: <span id="price">$25</span>
+        </p>
+      </form>
+    </section>
+
+    <section id="contact">
       <h2>Contact Us</h2>
-      <p>Email us at <a href="mailto:support@swehosting.com">support@swehosting.com</a> or call <strong>+46 70 123 4567</strong></p>
+      <form id="contact-form" action="mailto:sales@swehosting.com" method="POST" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </main>
 
   <footer>
     &copy; 2025 SweHosting. All rights reserved.
   </footer>
+
+  <script>
+    const cpuPrices = {
+      1: 5,
+      2: 10,
+      4: 18,
+      8: 30
+    };
+
+    const ramPricePerGB = 3; // $3 per GB
+    const bandwidthPricePerTB = 2; // $2 per TB
+    const storageMultiplier = {
+      ssd: 1,
+      hdd: 0.7
+    };
+
+    const cpuSelect = document.getElementById('cpu');
+    const ramRange = document.getElementById('ram');
+    const ramOutput = document.getElementById('ram-output');
+    const storageSelect = document.getElementById('storage');
+    const bandwidthRange = document.getElementById('bandwidth');
+    const bandwidthOutput = document.getElementById('bandwidth-output');
+    const priceDisplay = document.getElementById('price');
+
+    function updatePrice() {
+      const cpu = parseInt(cpuSelect.value);
+      const ram = parseInt(ramRange.value);
+      const storage = storageSelect.value;
+      const bandwidth = parseInt(bandwidthRange.value);
+
+      ramOutput.textContent = ram;
+      bandwidthOutput.textContent = bandwidth;
+
+      // Base price from CPU
+      let price = cpuPrices[cpu];
+      // Add RAM price
+      price += ram * ramPricePerGB;
+      // Add bandwidth price
+      price += bandwidth * bandwidthPricePerTB;
+      // Apply storage multiplier
+      price = price * storageMultiplier[storage];
+
+      priceDisplay.textContent = `$${price.toFixed(2)}`;
+    }
+
+    // Initialize price on page load
+    updatePrice();
+
+    // Optional: Show a thank you alert on contact form submission (since mailto only opens email client)
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      alert('Thank you for contacting SweHosting! Your email client will open shortly.');
+    });
+  </script>
 </body>
 </html>
