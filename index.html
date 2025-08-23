@@ -1,289 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SweHosting - Reliable Server Hosting</title>
-  <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: #f7f9fc;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    header {
-      background: #0078d7;
-      color: white;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ffbb33;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #0078d7;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: #555;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .plans {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-      animation-delay: 0.4s;
-    }
-
-    .plan {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      flex: 1 1 250px;
-      max-width: 300px;
-      transition: transform 0.3s ease;
-      cursor: default;
-    }
-
-    .plan:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .plan h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #0078d7;
-    }
-
-    .plan ul {
-      list-style: none;
-      margin-bottom: 1.5rem;
-      color: #444;
-      text-align: left;
-      padding-left: 1rem;
-    }
-
-    .plan ul li {
-      margin-bottom: 0.7rem;
-    }
-
-    .plan .price {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #ffbb33;
-      margin-bottom: 1.5rem;
-    }
-
-    .plan button {
-      background: #0078d7;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .plan button:hover {
-      background: #005fa3;
-    }
-
-    /* Pricing Calculator */
-    #calculator {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 3rem auto 4rem auto;
-      text-align: left;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-      animation-delay: 0.6s;
-    }
-
-    #calculator h3 {
-      margin-bottom: 1rem;
-      color: #0078d7;
-    }
-
-    #calculator label {
-      display: block;
-      margin: 1rem 0 0.4rem 0;
-      font-weight: 600;
-      color: #333;
-    }
-
-    #calculator select,
-    #calculator input[type="range"] {
-      width: 100%;
-      padding: 0.4rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    #calculator output {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #ffbb33;
-      text-align: center;
-    }
-
-    /* Contact Form */
-    #contact form {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 0 auto 3rem auto;
-      text-align: left;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s forwards;
-      animation-delay: 0.8s;
-    }
-
-    #contact form label {
-      display: block;
-      margin: 1rem 0 0.5rem 0;
-      font-weight: 600;
-      color: #333;
-    }
-
-    #contact form input,
-    #contact form textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: vertical;
-    }
-
-    #contact form textarea {
-      min-height: 120px;
-    }
-
-    #contact form button {
-      margin-top: 1.2rem;
-      background: #0078d7;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    #contact form button:hover {
-      background: #005fa3;
-    }
-
-    footer {
-      background: #222;
-      color: #ccc;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    a {
-      color: #0078d7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      .plans {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <h1>SweHosting</h1>
-    <h1>[We are currently under mainteneance!]</h1>
     <nav>
-      <a href="#plans">Plans</a>
-      <a href="#calculator">Pricing Calculator</a>
-      <a href="#about">About</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="hosting.html">Hosting</a>
+      <a href="domains.html">Domains</a>
+      <a href="tos.html">ToS</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="fairuse.html">Fair Use</a>
+      <a href="conduct.html">Code of Conduct</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -291,9 +24,7 @@
   <main>
     <section id="about">
       <h2>Reliable Server Hosting for Everyone</h2>
-      <p>
-        At SweHosting, we provide fast, secure, and affordable server hosting solutions tailored to your needs. Whether you’re running a small website or a large application, our infrastructure is built to scale with you.
-      </p>
+      <p>At SweHosting, we provide fast, secure, and affordable server hosting solutions tailored to your needs. Whether you’re running a small website or a large application, our infrastructure is built to scale with you.</p>
     </section>
 
     <section id="plans">
@@ -308,7 +39,14 @@
             <li>50 GB SSD Storage</li>
             <li>1 TB Bandwidth</li>
           </ul>
-          <button onclick="alert('Thanks for choosing Basic! Contact sales for next steps.')">Get Started</button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="your-paypal-email@example.com">
+            <input type="hidden" name="item_name" value="SweHosting - Basic Plan">
+            <input type="hidden" name="amount" value="5.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <button type="submit">Buy Now</button>
+          </form>
         </div>
 
         <div class="plan">
@@ -320,7 +58,14 @@
             <li>200 GB SSD Storage</li>
             <li>4 TB Bandwidth</li>
           </ul>
-          <button onclick="alert('Thanks for choosing Standard! Contact sales for next steps.')">Get Started</button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="your-paypal-email@example.com">
+            <input type="hidden" name="item_name" value="SweHosting - Standard Plan">
+            <input type="hidden" name="amount" value="25.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <button type="submit">Buy Now</button>
+          </form>
         </div>
 
         <div class="plan">
@@ -332,7 +77,14 @@
             <li>500 GB SSD Storage</li>
             <li>10 TB Bandwidth</li>
           </ul>
-          <button onclick="alert('Thanks for choosing Premium! Contact sales for next steps.')">Get Started</button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="your-paypal-email@example.com">
+            <input type="hidden" name="item_name" value="SweHosting - Premium Plan">
+            <input type="hidden" name="amount" value="45.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <button type="submit">Buy Now</button>
+          </form>
         </div>
       </div>
     </section>
@@ -341,7 +93,7 @@
       <h3>Custom Pricing Calculator</h3>
       <form onsubmit="return false;">
         <label for="cpu">CPU Cores:</label>
-        <select id="cpu" name="cpu" aria-label="Select number of CPU cores">
+        <select id="cpu" name="cpu">
           <option value="1">1 Core</option>
           <option value="2" selected>2 Cores</option>
           <option value="4">4 Cores</option>
@@ -352,7 +104,7 @@
         <input type="range" id="ram" name="ram" min="1" max="32" value="4" step="1" oninput="updatePrice()" />
 
         <label for="storage">Storage Type:</label>
-        <select id="storage" name="storage" aria-label="Select storage type" onchange="updatePrice()">
+        <select id="storage" name="storage" onchange="updatePrice()">
           <option value="ssd" selected>SSD</option>
           <option value="hdd">HDD</option>
         </select>
@@ -370,10 +122,10 @@
       <h2>Contact Us</h2>
       <form id="contact-form" action="mailto:sales@swehosting.com" method="POST" enctype="text/plain">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="Name" required />
+        <input type="text" id="name" name="Name" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="Email" required />
+        <input type="email" id="email" name="Email" required>
 
         <label for="message">Message:</label>
         <textarea id="message" name="Message" required></textarea>
@@ -387,69 +139,6 @@
     &copy; 2025 SweHosting. All rights reserved.
   </footer>
 
-  <script>
-    const cpuPrices = {
-      1: 5,
-      2: 10,
-      4: 18,
-      8: 30
-    };
-
-    const ramPricePerGB = 3; // $3 per GB
-    const bandwidthPricePerTB = 2; // $2 per TB
-    const storageMultiplier = {
-      ssd: 1,
-      hdd: 0.7
-    };
-
-    const cpuSelect = document.getElementById('cpu');
-    const ramRange = document.getElementById('ram');
-    const ramOutput = document.getElementById('ram-output');
-    const storageSelect = document.getElementById('storage');
-    const bandwidthRange = document.getElementById('bandwidth');
-    const bandwidthOutput = document.getElementById('bandwidth-output');
-    const priceDisplay = document.getElementById('price');
-
-    function updatePrice() {
-      const cpu = parseInt(cpuSelect.value);
-      const ram = parseInt(ramRange.value);
-      const storage = storageSelect.value;
-      const bandwidth = parseInt(bandwidthRange.value);
-
-      ramOutput.textContent = ram;
-      bandwidthOutput.textContent = bandwidth;
-
-      // Base price from CPU
-      let price = cpuPrices[cpu];
-      // Add RAM price
-      price += ram * ramPricePerGB;
-      // Add bandwidth price
-      price += bandwidth * bandwidthPricePerTB;
-      // Apply storage multiplier
-      price = price * storageMultiplier[storage];
-
-      priceDisplay.textContent = `$${price.toFixed(2)}`;
-    }
-
-    // Initialize price on page load
-    updatePrice();
-
-    // Optional: Show a thank you alert on contact form submission (since mailto only opens email client)
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
-      alert('Thank you for contacting SweHosting! Your email client will open shortly.');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
-
-  <!-- TrustBox widget - Review Collector -->
-<div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68a964c1870691dd67b85868" data-style-height="52px" data-style-width="100%" data-token="f569aec7-0774-4634-8cd9-2a703f3b578b">
-  <a href="https://www.trustpilot.com/review/swehosting.pl" target="_blank" rel="noopener">Trustpilot</a>
-</div>
-<!-- End TrustBox widget -->
-
-  <!-- TrustBox script -->
-<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-<!-- End TrustBox script -->
-  
-  
 </html>
