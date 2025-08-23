@@ -269,24 +269,94 @@ a:hover {
   }
 }
 
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* full viewport height */
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
 /* Hero button - solid square button */
 .hero-btn {
   display: inline-block;
-  background-color: #0072ff; /* solid blue */
-  color: #fff; /* white text */
-  font-size: 1.2rem;
+  background-color: #fff;
+  color: #0072ff;
+  font-size: 1.3rem;
   font-weight: bold;
-  padding: 14px 30px;
-  border-radius: 8px; /* slightly rounded corners */
-  text-decoration: none; /* remove link underline */
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
   text-align: center;
-  border: none; /* remove any border */
-  cursor: pointer; /* pointer on hover */
-  transition: background 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, color 0.3s;
 }
 
 .hero-btn:hover {
-  background-color: #005bb5; /* darker blue on hover */
-  transform: translateY(-2px); /* subtle lift */
+  background-color: #0072ff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Trustpilot Section */
+.reviews {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reviews h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Header/Nav */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  color: #0072ff;
+  font-size: 1.8rem;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a.active {
+  color: #0072ff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #555;
 }
 
