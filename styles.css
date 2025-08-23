@@ -268,3 +268,10 @@ a:hover {
     align-items: center;
   }
 }
+
+/* Hero button same style as plan buttons but larger */
+.hero-btn {
+  font-size: 1.2rem;
+  padding: 12px 28px;
+}
+
