@@ -269,9 +269,22 @@ a:hover {
   }
 }
 
-/* Hero button same style as plan buttons but larger */
+/* Hero button - solid square button like hosting plans */
 .hero-btn {
+  display: inline-block;
+  background-color: #0072ff;
+  color: #fff;
   font-size: 1.2rem;
-  padding: 12px 28px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero-btn:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
 }
 
