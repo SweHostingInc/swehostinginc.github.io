@@ -361,7 +361,7 @@ footer {
 }
 /* Get Started Button */
 
-.start button {
+a.start {
   background: #0078d7;
   color: white;
   border: none;
