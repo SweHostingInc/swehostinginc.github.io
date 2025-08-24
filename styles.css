@@ -371,3 +371,34 @@ a.start {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+header h1 {
+  color: #0072ff;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a.active {
+  color: #0072ff;
+}
+
+.features h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
